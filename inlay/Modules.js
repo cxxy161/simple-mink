@@ -9,7 +9,6 @@ function generateRandomCoordinatesAroundOrigin(originX, originY, stddev) {
   // stddev是标准差，决定了分布的宽度
   let mean = 0;
 // 如果没有提供标准差，则使用默认值1
-
   // 生成x和y坐标
   let x = mean + stddev * boxMullerTransform();
   let y = mean + stddev * boxMullerTransform();
@@ -26,32 +25,21 @@ function boxMullerTransform() {
   let u = 0, v = 0;
   while(u === 0) u = Math.random(); // 避免除以0
   while(v === 0) v = Math.random();
-  let num = Math.sqrt( -2.0 * Math.log( u ) ) * Math.cos( 2.0 * Math.PI * v );
+  let num = Math.sqrt( -2.0 * Math.log( u ) ) * Math.cos( 2.0 * Math.PI * v );  
   return num;
 }
-
-function Gene_mutation(ty,dna){
-	/*let mkey=Object.keys(dna)
-	let a1=Math.floor(Math.random()*mkey.length)
-	let m1=dna[mkey[a1]]
-	dna[mkey[a1]]=m1+(Math.floor(Math.random()*10)-5)/10
-*/
-  if(ty==0){//植物
-    let mkey=Object.keys(dna)
-	let a1=Math.floor(Math.random()*mkey.length)
-	let m1=dna[mkey[a1]]
-	dna[mkey[a1]]=m1+(Math.floor(Math.random()*10)-5)/10
-  }
-	//console.log(mkey[a1],dna,dnan)
-	return structuredClone(dna)
+function toPrecision(num, precision=2) {//jb取整
+  const factor = num.toFixed(precision)
+  return Number(factor);
 }
+
 
 function scale_ji(x,y){
   let rx=x-moux_zoomsave
   let ry=y-mouy_zoomsave
   let nx=rx*zoomscale
   let ny=ry*zoomscale
-  console.log(rx,ry,[nx.toFixed(2),ny.toFixed(2)],moux_zoomsave)
-  return [nx.toFixed(2),ny.toFixed(2)]
+  console.log(rx,ry,[],moux_zoomsave)
+  return []
 
 }

@@ -33,8 +33,8 @@ function Rendering(){
 		ctx.fillStyle='black';
 		ctx.font = "20px Sans-serif";	
 		mb=Details_display
-		ctx.fillText('当前能量：'+mb.power.toFixed(2),cx-240,70);
-		ctx.fillText('当前生命周期：'+mb.livespan,cx-240,100);
+		ctx.fillText('当前能量：'+toPrecision(mb.power),cx-240,70);
+		ctx.fillText('当前生命周期：'+mb.livespan+';'+(tk-mb.lifetick),cx-240,100);
 		if(mb.type==1){
 			ctx.fillText('正在：'+mb.doing[0],cx-240,130);
 			ctx.fillText('剩余距离：'+Math.ceil(mb.goinglen),cx-240,160);
@@ -59,7 +59,7 @@ function Rendering(){
 		}
 		let ggy=190
 		for(let dnak in mb.dna){
-			ctx.fillText(`${dnak},：${mb.dna[dnak].toFixed(2)}`,cx-240,ggy);
+			ctx.fillText(`${dnak},：${mb.dna[dnak]}`,cx-240,ggy);
 			ggy+=30
 		}
 		

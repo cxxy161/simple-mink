@@ -3,7 +3,8 @@ var mor_her={
 	storage:200,//储能
 	Metabolism:2,//能量消耗
 	speed:5,//移动速度
-	growth:[10,10],//生长速度
+	growth:[10,50],//生长速度
+	life:18,
 	breeding_number:1,//繁殖能力
 	breeding_time:19,//繁殖季节
 	attck:10,//攻击
@@ -17,8 +18,10 @@ class herbivores{
 		this.y=y;
 		this.doing=''
     	this.power=100;
+		this.allget_power=0
 		//this.eats=0;
 		this.livespan=0;
+		this.lifetick=tk
 		this.dna=dna;
 		this.goinglen=0
 		//herbivores_dna[0体重,1储能,2胃,3能量转化,4能量消耗,5移动速度,6生长速度,7繁殖能力,8繁殖间隔,9繁殖季节,10攻击,11防御,12视野]
@@ -35,20 +38,23 @@ class herbivores{
 			if(fa==0){
 				let ne=new herbivores(this.x,this.y,Gene_mutation(this.type,this.dna))
 				herbivoress.push(ne);
-				console.log("动物繁殖：",ne)
+				//console.log("动物繁殖：",ne)
 			}
 			//else if(fa==1)
 		}
 	}
 	tick(){
 		this.power-=this.dna.Metabolism
-		
+		if(Math.floor(this.allget_power/this.dna.growth[1])>=this.livespan){
+			this.livespan++
+		}
 		if(this.power>=200 && tk%oneyear-this.dna.breeding_time+2<4){
 			this.sire()
 			this.power-=180
 		}
 		//sire
 		if(this.power<0){this.kill()}
+		if(this.livespan>this.dna.life){this.kill()}
 	}
 	find_food(){
 		let zui,len
@@ -90,6 +96,7 @@ class herbivores{
 					this.goinglen=len;
 					if(len<20){
 						this.power+=mb.beatt(this.dna.attck)*0.5
+						this.allget_power+=mb.beatt(this.dna.attck)*0.5
 						this.doing=0
 					}
 					else{

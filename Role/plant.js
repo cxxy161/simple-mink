@@ -4,7 +4,7 @@ var mor_plan={
     usepw:50,//生长能量
     brnum:2,//繁殖数量
    brtime:5,//繁殖期
-   defense:1
+   defense:1//防御
    }
    class plant{
        constructor(x,y,dna){
@@ -13,6 +13,7 @@ var mor_plan={
            this.y=y;
            this.power=0;
            this.livespan=1;
+           this.lifetick=tk
            this.bodytype=5
            this.dna=dna;
        }
@@ -26,7 +27,8 @@ var mor_plan={
            if(Math.floor(this.power/this.dna.usepw)>=this.livespan){
                this.livespan++
            }
-           if(this.livespan>1 && tk%oneyear==this.dna.brtime){
+           if(this.livespan>1 && tk%oneyear-this.dna.brtime<1){
+               //this.power-=this.dna.usepw/1.5
                this.sire()
            }
            
@@ -44,13 +46,14 @@ var mor_plan={
                let fa=0
                if(fa==0){
                    let ls
-                   //if(plantlen>1000){ls=generateRandomCoordinatesAroundOrigin(this.x,this.y,120)//ls=smplecuxy(this.x,this.y,120)
-   
-                   //}else{
+                   if(plantlen>10000){
+                    ls=smplecuxy(this.x,this.y,120)
+                    }else{
                    ls=generateRandomCoordinatesAroundOrigin(this.x,this.y,120)
-                   //}
+                   }
                    let lx = ls[0], ly = ls[1]
-                   let ne=new plant(lx,ly,Gene_mutation(this.type,this.dna))
+                   let gxh=Gene_mutation(this.type,this.dna)
+                   let ne=new plant(lx,ly,gxh)
                    plants.push(ne);
                    //console.log("植物繁殖：",ne)
                }
@@ -59,7 +62,7 @@ var mor_plan={
            
        }
        beatt(att){
-           let ls=att-this.dna.defense
+           let ls=Math.max(att-this.dna.defense,0)
            this.power-=ls
            if(this.power<=0){this.kill()}
            return ls

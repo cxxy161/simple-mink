@@ -111,7 +111,7 @@ document.addEventListener('DOMContentLoaded', function() {//显示统计信息
 	// 更新滑块输出
 	function updateOutput() {
 	  output.textContent = slider.value + '倍速';
-	  if(slider.value==0){speed=10000}
+	  if(slider.value==0){speed=1000000}
 	  else{speed = 500 / parseFloat(slider.value)}
 	}
   
@@ -150,6 +150,6 @@ document.addEventListener('DOMContentLoaded', function() {//显示统计信息
 	  //zoompy-=zoomIntensity*10
 	}
 	
-	zoomscale=zoomscale.toFixed(2)
+	zoomscale=1//zoomscale.toFixed(2)
 	// 计算偏移量
   }
