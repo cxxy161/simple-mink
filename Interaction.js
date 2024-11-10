@@ -111,7 +111,8 @@ document.addEventListener('DOMContentLoaded', function() {//显示统计信息
 	// 更新滑块输出
 	function updateOutput() {
 	  output.textContent = slider.value + '倍速';
-	  speed = 500 / parseFloat(slider.value)
+	  if(slider.value==0){speed=10000}
+	  else{speed = 500 / parseFloat(slider.value)}
 	}
   
 	// 初始化滑块输出
@@ -126,3 +127,29 @@ document.addEventListener('DOMContentLoaded', function() {//显示统计信息
 	  updateOutput(); // 更新输出
 	});
   });
+
+  
+  document.addEventListener('wheel', handleMouseWheel);//鼠标滚落缩放
+  var moux_zoomsave=moux
+  var mouy_zoomsave=mouy
+  function handleMouseWheel(event) {
+	// 根据滚轮的滚动方向调整缩放级别
+	moux_zoomsave=(moux+moux_zoomsave)/2
+	mouy_zoomsave=(mouy+mouy_zoomsave)/2
+	if (event.deltaY < 0) {
+	  // 滚轮向上滚动，放大
+	  zoomscale *= (1 + zoomIntensity);
+	  //moux_zoomsave+=zoomIntensity//*10
+	  //mouy_zoomsave+=zoomIntensity//*10
+	  //zoompy+=zoomIntensity*10
+	} else {
+	  // 滚轮向下滚动，缩小
+	  zoomscale *= (1 - zoomIntensity);
+	  //moux_zoomsave-=zoomIntensity//*10
+	  //mouy_zoomsave-=zoomIntensity//*10
+	  //zoompy-=zoomIntensity*10
+	}
+	
+	zoomscale=zoomscale.toFixed(2)
+	// 计算偏移量
+  }

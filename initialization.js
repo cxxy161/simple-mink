@@ -44,3 +44,9 @@ var herbivoress = []
 var oneyear = 10
 var mostcansee = 2000//最多生成数量
 var statisticstext = 15
+
+// 初始化缩放级别
+var zoomscale = 1.0
+// 缩放系数，可以根据需要调整
+var zoomIntensity = 0.1;
+//var zoompy=0//py偏移量

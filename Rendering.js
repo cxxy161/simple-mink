@@ -5,9 +5,10 @@ function Rendering(){
 			if(pl.y>-sey-10 && pl.y<canv.height-sey+10){
 				ctx.fillStyle='rgb(209,255,159)';
 				ctx.beginPath();
-				ctx.arc(pl.x+sex,pl.y+sey, pl.bodytype, 0, Math.PI * 2);
+				let pyl=[0,0]//scale_ji(pl.x+sex,pl.y+sey)
+				ctx.arc(pl.x+sex+pyl[0],pl.y+sey+pyl[1], pl.bodytype*zoomscale, 0, Math.PI * 2);
 				ctx.fill()
-				//console.log(pl.y,pl.x,pl)
+				//console.log(pyl,pl.x,pl)
 			}
 		}
 	}
@@ -18,7 +19,7 @@ function Rendering(){
 				//pl=herbivoress[i]
 				ctx.fillStyle='#c9a100'
 				ctx.beginPath();
-				ctx.arc(pl.x+sex,pl.y+sey, 5, 0, Math.PI * 2);
+				ctx.arc(pl.x+sex,pl.y+sey, 5*zoomscale, 0, Math.PI * 2);
 				ctx.fill()
 				//console.log(pl.y,pl.x,pl)
 			}
@@ -69,6 +70,6 @@ function Rendering(){
 	let fps=1000/(new Date().getTime()-psst)
 	fps=Math.round(fps * 10) / 10
 	psst=new Date().getTime()
-	tis="x:"+Math.round(sex)+'  y:'+Math.round(sey)+'  tick:'+tk+'   fps:'+fps
+	tis="x:"+Math.round(sex)+'  y:'+Math.round(sey)+'  zoom:'+zoomscale+'  tick:'+tk+'   fps:'+fps
 	ctx.fillText(tis,10,20);
 }

@@ -45,3 +45,13 @@ function Gene_mutation(ty,dna){
 	//console.log(mkey[a1],dna,dnan)
 	return structuredClone(dna)
 }
+
+function scale_ji(x,y){
+  let rx=x-moux_zoomsave
+  let ry=y-mouy_zoomsave
+  let nx=rx*zoomscale
+  let ny=ry*zoomscale
+  console.log(rx,ry,[nx.toFixed(2),ny.toFixed(2)],moux_zoomsave)
+  return [nx.toFixed(2),ny.toFixed(2)]
+
+}

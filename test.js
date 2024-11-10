@@ -5,5 +5,5 @@ herbivoress.push(ne)}
 for(let i=0;i < 100;++i){
     let mor=structuredClone(mor_plan)
 		let ne=new plant(i,i,mor)
-		plants.push(ne)}
-}
+		//plants.push(ne)}
+}}
