@@ -41,7 +41,7 @@ var speed = 500;
 var plants = []
 var plantlen = 0
 var herbivoress = []
-var oneyear = 10
+var oneyear = 30
 var mostcansee = 10000//最多生成数量
 var statisticstext = 15
 

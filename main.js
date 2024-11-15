@@ -1,5 +1,4 @@
 //
-teat()
 function o_tick(){
 	tk++
 	plantlen=plants.length

@@ -18,28 +18,26 @@ function Gene_mutation(ty, dnaa) {
       let old_key = Number(dna[cvalue]);
       let s
       switch(cvalue){
-        case 'brtime':
-          dna['brtime'] = toPrecision(old_key + Math.floor(Math.random() * 2) - 1) || 0
-          break;
         case 'defense':
-          s=Math.floor(Math.random() * 2) - 1
+          s=Math.floor(Math.random())
           dna['defense']=toPrecision(old_key + s)
           dna['rate']=Math.max(toPrecision(old_key - s/2), 0)
           break
         case 'rate':
-          s=(Math.floor(Math.random() * 20) - 10)/10
+          s=(Math.floor(Math.random() * 10))/10
           dna['rate']=Math.max(toPrecision(old_key + s), 0)
-          dna['usepw']=Math.max(toPrecision(old_key + s*2), 50)
+          dna['usepw']=Math.max(toPrecision(old_key + s*3), 50)
           break
         case 'brnum':
-            s=(Math.floor(Math.random() * 2) - 1)
+            s=(Math.floor(Math.random()))
             dna['brnum']=Math.max(toPrecision(old_key + s) , 0)
-            dna['usepw']=Math.max(toPrecision(old_key + s*4), 50)
+            dna['usepw']=Math.max(toPrecision(old_key + s*5), 50)
             break
+        case 'brtime':
         case 'usepw':
             break
         default:
-            dna[cvalue] = Math.max(toPrecision(old_key + Math.floor(Math.random() * 20) - 10)/10, 0)
+            dna[cvalue] = Math.max(toPrecision(old_key + Math.floor(Math.random()*10))/10, 0)
             break
       }
       

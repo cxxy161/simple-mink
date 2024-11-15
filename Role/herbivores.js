@@ -48,7 +48,7 @@ class herbivores{
 		if(Math.floor(this.allget_power/this.dna.growth[1])>=this.livespan){
 			this.livespan++
 		}
-		if(this.power>=200 && tk%oneyear-this.dna.breeding_time+2<4){
+		if(this.power>=200 && tk%oneyear-this.dna.breeding_time+4<8){
 			this.sire()
 			this.power-=180
 		}
@@ -77,7 +77,7 @@ class herbivores{
 		else if(this.power/this.dna.storage<1){//捕食
 			this.doing=['attck',this.find_food()]
 		}
-		else if(this.power/this.dna.storage>0.5){
+		else if(this.power/this.dna.storage>0.7){
 			this.doing=['move',generateRandomCoordinatesAroundOrigin(this.x,this.y,50)]
 		}
 	}

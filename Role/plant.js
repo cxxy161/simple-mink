@@ -16,6 +16,7 @@ var mor_plan={
            this.lifetick=tk
            this.bodytype=5
            this.dna=dna;
+           this.dna.brtime=Math.floor(Math.random()*oneyear)
        }
        tick(){
            //get power
