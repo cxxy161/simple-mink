@@ -1,9 +1,8 @@
 var chunksize=100
 var spchunksize=10
 
-function lenof(obj){
-    return 0
-}
+
+
 function build_spchunk(cont,x,y){
     let lchunk=[]
     for(let i=0;i<spchunksize;i++){
@@ -40,6 +39,37 @@ function forrender(cont){
     }
     return retu
 
+}
+function forall(cont){
+    let retu=[]
+    for(let [key, value] of cont){
+            for(let k=0;k<value[0];k++){
+                for(let l=0;l<value[1];l++){
+                    if(value[k][l].length>0){
+                        for(let m=0;m<value[k][l].length;m++){
+                            retu.push(value[k][l][m])
+                        }
+                    }
+                }
+            }
+        
+    }
+    return retu
+}function forlen(cont){
+    let retu=0
+    for(let [key, value] of cont){
+            for(let k=0;k<value[0];k++){
+                for(let l=0;l<value[1];l++){
+                    if(value[k][l].length>0){
+                        for(let m=0;m<value[k][l].length;m++){
+                            retu++
+                        }
+                    }
+                }
+            }
+        
+    }
+    return retu
 }
 
 function addrole(cont,obj){

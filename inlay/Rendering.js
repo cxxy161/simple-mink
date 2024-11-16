@@ -1,16 +1,14 @@
 function Rendering(){
 	ctx.clearRect(0,0,canv.width,canv.height);
-	for(let pl of plants){
-		if(pl.x>-sex-10 && pl.x<canv.width-sex+10){
-			if(pl.y>-sey-10 && pl.y<canv.height-sey+10){
+	for(let pl of forrender(plants)){
 				ctx.fillStyle='rgb(209,255,159)';
 				ctx.beginPath();
 				let pyl=[0,0]//scale_ji(pl.x+sex,pl.y+sey)
 				ctx.arc(pl.x+sex+pyl[0],pl.y+sey+pyl[1], pl.bodytype*zoomscale, 0, Math.PI * 2);
 				ctx.fill()
 				//console.log(pyl,pl.x,pl)
-			}
-		}
+			
+		
 	}
 	for(let pl of herbivoress){
 		//console.log(pl.x>-sex-10 && pl.x<canv.width-sex+10)
