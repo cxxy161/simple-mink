@@ -55,7 +55,7 @@ var mor_plan={
                    let lx = ls[0], ly = ls[1]
                    let gxh=Gene_mutation(this.type,this.dna)
                    let ne=new plant(lx,ly,gxh)
-                   plants.push(ne);
+                   addrole(plants,ne)
                    //console.log("植物繁殖：",ne)
                }
                //else if(fa==1)
@@ -69,9 +69,7 @@ var mor_plan={
            return ls
        }
        kill(){
-           let index = plants.findIndex(obj => obj==this);
-           // 如果找到了对象，删除它
-           if (index !== -1) {plants.splice(index, 1);}
+        killobj(plants,this)
        }
        
    }

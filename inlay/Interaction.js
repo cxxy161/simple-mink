@@ -6,7 +6,7 @@ function creat_new_plant(){
         let y = event.clientY-sey;
 		let mor=structuredClone(mor_plan)
 		let ne=new plant(x,y,mor)
-		plants.push(ne)
+		addrole(plants,ne)
 		console.log('生成植物',ne)
         canv.onclick = null;
     };

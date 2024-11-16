@@ -86,3 +86,39 @@ function addrole(cont,obj){
     cont.set([spchux,spchuy],lchunk)
 
 }
+
+function seachfor(cont,x,y,size){
+    let retu=[]
+    const sechux=[(x-size)/chunksize,(x+size)/chunksize]
+    const sechuy=[(y-size)/chunksize,(y+size)/chunksize]
+    const sespchux=[sechux[0]/spchunksize,sechux[1]/spchunksize]
+    const sespchuy=[sechuy[0]/spchunksize,sechuy[1]/spchunksize]
+    for(let i=sespchux[0];i<sespchux[1];i++){
+        for(let j=sespchuy[0];j<sespchuy[1];j++){
+            let lchunk = cont.get([i,j])
+            for(let k=sechux[0];k<sechux[1];k++){
+                for(let l=sechuy[0];l<sechuy[1];l++){
+                    if(lchunk[k][l].length>0){
+                        for(let m=0;m<lchunk[k][l].length;m++){
+                            retu.push(lchunk[k][l][m])
+                        }
+                    }
+                }
+            }
+        }
+    }
+    return retu
+}
+function killobj(cont,obj){
+    let retu=[]
+    const chux=Math.ceil(obj.x/chunksize)
+    const chuy=Math.ceil(obj.y/chunksize)
+    const spchux=Math.ceil(chux/spchunksize)
+    const spchuy=Math.ceil(chuy/spchunksize)
+    
+    let value = cont.get([spchux,spchuy])[chux][chuy]
+    value.splice(value.indexOf(obj),1)
+    cont.set([spchux,spchuy],value)
+    
+
+}

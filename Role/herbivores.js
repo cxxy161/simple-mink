@@ -59,7 +59,7 @@ class herbivores{
 	find_food(){
 		let zui,len
 		let min=Infinity
-		for(let mb of plants){
+		for(let mb of seachfor(plants,this.x,this.y,this.dna.vision)){
 			len=Math.sqrt(Math.pow(mb.x - this.x, 2) + Math.pow(mb.y - this.y, 2))+(Math.random()*40-20)
 			//console.log(len,mb)
 			if(len<min && len<this.dna.vision){
