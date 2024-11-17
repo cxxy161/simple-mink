@@ -12,7 +12,14 @@ function resizeCanvas() {
 }
 resizeCanvas()
 window.addEventListener('resize', resizeCanvas);
-setInterval(function () { Rendering() }, 50);
+class ArrayMap {
+  constructor() { this.map = new Map;}
+  set(keyArray, value) { this.map.set(JSON.stringify(keyArray), value) }
+  get(keyArray) { return this.map.get(JSON.stringify(keyArray)) }
+  has(keyArray) { return this.map.has(JSON.stringify(keyArray)) }
+  size(){return this.map.size}
+}
+
 
 /*slider.oninput = function () {
   output.innerHTML = '播放倍速:' + this.value;
@@ -38,7 +45,7 @@ var sey = 0
 var sight = 5
 var tk = 0
 var speed = 500;
-var plants = new Map()
+var plants = new ArrayMap()
 var plantlen = 0
 var herbivoress = []
 var oneyear = 30

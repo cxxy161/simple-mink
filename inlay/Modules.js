@@ -43,3 +43,7 @@ function scale_ji(x,y){
   return []
 
 }
+
+function fixNegativeZero(value) {
+  return value === -0 ? 0 : value;
+}

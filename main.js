@@ -21,5 +21,7 @@ function o_animal(){
 //setInterval(function(){o_animal()},speed/5);
 function maincurtick(){o_tick();setTimeout(maincurtick,speed)}
 function maincuroanmal(){o_animal();setTimeout(maincuroanmal,speed/5)}
+
+setInterval(function () { Rendering() }, 50);
 maincurtick()
 maincuroanmal()

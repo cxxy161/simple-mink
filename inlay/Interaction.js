@@ -38,7 +38,7 @@ canv.addEventListener('click', function(event) {
 		}
 	}
 	if(!details_display){
-		for(let pl of plants){
+		for(let pl of seachfor(plants,dx,dy,fw)){
 			if(Math.abs(pl.x-dx)<fw){
 			if(Math.abs(pl.y-dy)<fw){
 				details_display=pl

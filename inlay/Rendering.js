@@ -6,7 +6,7 @@ function Rendering(){
 				let pyl=[0,0]//scale_ji(pl.x+sex,pl.y+sey)
 				ctx.arc(pl.x+sex+pyl[0],pl.y+sey+pyl[1], pl.bodytype*zoomscale, 0, Math.PI * 2);
 				ctx.fill()
-				//console.log(pyl,pl.x,pl)
+				console.log(pyl,pl.x,pl)
 			
 		
 	}
